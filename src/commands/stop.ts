@@ -10,7 +10,7 @@ import Command from '.';
 export default class implements Command {
   public readonly slashCommand = new SlashCommandBuilder()
     .setName('stop')
-    .setDescription('stop playback, disconnect, and clear all songs in the queue');
+    .setDescription('pare o playback, desconectar, e limpar os sons na lista');
 
   public requiresVC = true;
 
@@ -32,6 +32,6 @@ export default class implements Command {
     }
 
     player.stop();
-    await interaction.reply('u betcha, stopped');
+    await interaction.reply('Vc que manda!');
   }
 }
