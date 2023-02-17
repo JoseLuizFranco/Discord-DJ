@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   muse:
-    image: codetheweb/muse:latest
+    image: JoseLuizFranco/Discord-DJ:latest
     restart: always
     volumes:
       - ./muse:/data
