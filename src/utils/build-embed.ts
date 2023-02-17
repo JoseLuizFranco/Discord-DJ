@@ -32,7 +32,7 @@ const getQueueInfo = (player: Player) => {
     return '-';
   }
 
-  return queueSize === 1 ? '1 song' : `${queueSize} songs`;
+  return queueSize === 1 ? '1 musica' : `${queueSize} musicas`;
 };
 
 const getPlayerUI = (player: Player) => {
@@ -54,14 +54,14 @@ export const buildPlayingMessageEmbed = (player: Player): EmbedBuilder => {
   const currentlyPlaying = player.getCurrent();
 
   if (!currentlyPlaying) {
-    throw new Error('No playing song found');
+    throw new Error('Nenhuma musica tocando no momento!');
   }
 
   const {artist, thumbnailUrl, requestedBy} = currentlyPlaying;
   const message = new EmbedBuilder();
   message
     .setColor(player.status === STATUS.PLAYING ? 'DarkGreen' : 'DarkRed')
-    .setTitle(player.status === STATUS.PLAYING ? 'Now Playing' : 'Paused')
+    .setTitle(player.status === STATUS.PLAYING ? 'Agora tocando' : 'Pausado')
     .setDescription(`
       **${getSongTitle(currentlyPlaying)}**
       Requested by: <@${requestedBy}>\n
@@ -119,7 +119,7 @@ export const buildQueueEmbed = (player: Player, page: number): EmbedBuilder => {
   }
 
   message
-    .setTitle(player.status === STATUS.PLAYING ? `Now Playing ${player.loopCurrentSong ? '(loop on)' : ''}` : 'Queued songs')
+    .setTitle(player.status === STATUS.PLAYING ? `Agora tocando ${player.loopCurrentSong ? '(loop ligado)' : ''}` : 'Musicas na lista')
     .setColor(player.status === STATUS.PLAYING ? 'DarkGreen' : 'NotQuiteBlack')
     .setDescription(description)
     .addFields([{name: 'In queue', value: getQueueInfo(player), inline: true}, {
