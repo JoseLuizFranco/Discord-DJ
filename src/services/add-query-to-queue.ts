@@ -165,9 +165,9 @@ export default class AddQueryToQueue {
     }
 
     if (newSongs.length === 1) {
-      await interaction.editReply(`u betcha, **${firstSong.title}** added to the${addToFrontOfQueue ? ' front of the' : ''} queue${extraMsg}`);
+      await interaction.editReply(`Vc que manda! **${firstSong.title}** foi adicionada ${addToFrontOfQueue ? ' na frente de' : ''} na lista${extraMsg}`);
     } else {
-      await interaction.editReply(`u betcha, **${firstSong.title}** and ${newSongs.length - 1} other songs were added to the queue${extraMsg}`);
+      await interaction.editReply(`Vc que manda! **${firstSong.title}** e ${newSongs.length - 1} outras musicas foram adicionadas a lista ${extraMsg}`);
     }
   }
 }
